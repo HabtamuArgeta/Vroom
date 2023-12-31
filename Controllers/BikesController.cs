@@ -73,7 +73,7 @@ namespace Vroom.Controllers
 
             {
                 string AbsolutePath = "C:\\Program Files\\installed apps\\Linux comanned\\crzylearning\\DotNet Apps\\Vroom\\wwwroot";
-                string RelativePath = "/Images/Bikes";
+                string RelativePath = "/Images/Bikes/";
                 RelativePath += Guid.NewGuid().ToString() + "_" + bike.Image.FileName;
                 AbsolutePath += RelativePath;
                 bike.ImagePath = RelativePath;
@@ -82,6 +82,10 @@ namespace Vroom.Controllers
 
                 await bike.Image.CopyToAsync(new FileStream(ServerFolder,FileMode.Create));
 
+            }
+            else
+            {
+                bike.ImagePath = "/Images/ImageNotUploaded.jpeg";
             }
 
             _context.Add(bike);
@@ -118,38 +122,69 @@ namespace Vroom.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MakeId,ModelId,Year,Mileage,Features,SellerName,SellerEmail,SellerPhone,Price,CurrencyId,ImagePath")] Bike bike)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,MakeId,ModelId,Year,Mileage,Features,SellerName,SellerEmail,SellerPhone,Price,CurrencyId,Image")] Bike bike)
         {
             if (id != bike.Id)
             {
                 return NotFound();
             }
 
+            if (bike.Image != null)
+            {
+                string AbsolutePath = "C:\\Program Files\\installed apps\\Linux comanned\\crzylearning\\DotNet Apps\\Vroom\\wwwroot";
+                string RelativePath = "/Images/Bikes/";
+                RelativePath += Guid.NewGuid().ToString() + "_" + bike.Image.FileName;
+                AbsolutePath += RelativePath;
+                bike.ImagePath = RelativePath;
+
+                string ServerFolder = Path.Combine(_webHostEnvironment.WebRootPath, AbsolutePath);
+
+                await bike.Image.CopyToAsync(new FileStream(ServerFolder, FileMode.Create));
+
+            }
+            else
+            {
+                var existingBike = _context.Bike.AsNoTracking().FirstOrDefault(b => b.Id == bike.Id);
+
+                if (existingBike != null)
+                {
+                    bike.ImagePath = existingBike.ImagePath;
+                }
+                else
+                {
+                    bike.ImagePath = "/default-image-path.jpg";
+                }
+            }
+
             //if (ModelState.IsValid)
             //{
-                try
+            try
+            {
+                _context.Update(bike);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!BikeExists(bike.Id))
                 {
-                    _context.Update(bike);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!BikeExists(bike.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
-                return RedirectToAction(nameof(Index));
+            }
+
+            return RedirectToAction(nameof(Index));
            // }
+
             ViewData["CurrencyId"] = new SelectList(_context.Currency, "Id", "Name", bike.CurrencyId);
             ViewData["MakeId"] = new SelectList(_context.Make, "Id", "Name", bike.MakeId);
             ViewData["ModelId"] = new SelectList(_context.Model, "Id", "Name", bike.ModelId);
             return View(bike);
         }
+
+
 
         // GET: Bikes/Delete/5
         public async Task<IActionResult> Delete(int? id)
