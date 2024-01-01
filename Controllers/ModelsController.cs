@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -61,9 +62,9 @@ namespace Vroom.Controllers
         {
             //if (ModelState.IsValid)
             //{
-                _context.Add(model);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            _context.Add(model);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
             //}
             ViewData["MakeId"] = new SelectList(_context.Make, "Id", "Name", model.MakeId);
             return View(model);
@@ -100,24 +101,24 @@ namespace Vroom.Controllers
 
             //if (ModelState.IsValid)
             //{
-                try
+            try
+            {
+                _context.Update(model);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ModelExists(model.Id))
                 {
-                    _context.Update(model);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!ModelExists(model.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
-                return RedirectToAction(nameof(Index));
-           // }
+            }
+            return RedirectToAction(nameof(Index));
+            // }
             ViewData["MakeId"] = new SelectList(_context.Make, "Id", "Name", model.MakeId);
             return View(model);
         }
@@ -159,6 +160,13 @@ namespace Vroom.Controllers
         private bool ModelExists(int id)
         {
             return _context.Model.Any(e => e.Id == id);
+        }
+        [AllowAnonymous]
+        [HttpGet("api/models/{MakeId}")]
+        public   IEnumerable<Model> Models(int MakeId)
+        {
+            return _context.Model.ToList()
+                .Where(m=>m.MakeId == MakeId);
         }
     }
 }

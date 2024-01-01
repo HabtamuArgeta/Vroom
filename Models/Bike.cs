@@ -14,12 +14,13 @@ namespace Vroom.Models
 
         public Make Make { get; set; }
 
-        [Required( ErrorMessage = "Select Make")]
+        
+        [RegularExpression("^[1-9]*$", ErrorMessage = "Select Make")]
         public int MakeId { get; set; }
 
         public Model Model { get; set; }
 
-        [Required(ErrorMessage = "Select Model")]
+        [RegularExpression("^[1-9]*$", ErrorMessage = "Select Model")]
         public int ModelId { get; set; }
 
         
@@ -50,20 +51,19 @@ namespace Vroom.Models
         [Range(1, 999999999, ErrorMessage = "Not with in the valid price range")]
         public int Price { get; set; }
 
-        public Currency Currency {  get; set; } 
+        public Currency Currency {  get; set; }
 
-        [Required (ErrorMessage = "Select Currency")]
+        [RegularExpression("^[1-9]*$", ErrorMessage = "Select Currency")]
         public int CurrencyId { get; set; }
 
         [Display(Name = "Image File")]
 
         // this is used to store the image of the motercyle to the server
 
-        [NotMapped]
-        [Required]
-        public IFormFile Image { get; set; }
+        [NotMapped] 
+        public IFormFile? Image { get; set; }
 
         // this is used  to store the path of the MoterCycle to databases 
-        public string  ImagePath { get; set; }
+        public string?  ImagePath { get; set; }
     }
 }

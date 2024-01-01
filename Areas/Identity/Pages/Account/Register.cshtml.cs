@@ -142,22 +142,22 @@ namespace Vroom.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     // create roles Admin and Excutive 
-                    if (!await _roleManager.RoleExistsAsync("Admin"))
+                    if (!await _roleManager.RoleExistsAsync(Roles.Admin))
                     {
-                        await _roleManager.CreateAsync(new IdentityRole("Admin"));
+                        await _roleManager.CreateAsync(new IdentityRole(Roles.Admin));
                     }
-                    if (!await _roleManager.RoleExistsAsync("Excutive"))
+                    if (!await _roleManager.RoleExistsAsync(Roles.Excutive))
                     {
-                        await _roleManager.CreateAsync(new IdentityRole("Excutive"));
+                        await _roleManager.CreateAsync(new IdentityRole(Roles.Excutive));
                     }
                     // asign role based on the checkbox
                     if (Input.IsAdmin)
                     {
-                        await _userManager.AddToRoleAsync(user, "Admin");
+                        await _userManager.AddToRoleAsync(user, Roles.Admin);
                     }
                     else
                     {
-                        await _userManager.AddToRoleAsync(user, "Excutive");
+                        await _userManager.AddToRoleAsync(user, Roles.Excutive);
                     }
 
                     _logger.LogInformation("User created a new account with password.");

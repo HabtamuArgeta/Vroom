@@ -5,8 +5,28 @@
       "PackagePath": "staticwebassets\\Vroom.bundle.scp.css"
     },
     {
-      "Id": "C:\\Program Files\\installed apps\\Linux comanned\\crzylearning\\DotNet Apps\\vroom\\wwwroot\\Images\\Bikes38b7d23d-69a2-4c57-8ee9-06b2e7022dc0_IMG_20230208_133451.jpg",
-      "PackagePath": "staticwebassets\\Images\\Bikes38b7d23d-69a2-4c57-8ee9-06b2e7022dc0_IMG_20230208_133451.jpg"
+      "Id": "C:\\Program Files\\installed apps\\Linux comanned\\crzylearning\\DotNet Apps\\vroom\\wwwroot\\Images\\Bikes\\1957f8e6-a022-4200-9b52-bbd8397fafca_IMG_20230505_090741.jpg",
+      "PackagePath": "staticwebassets\\Images\\Bikes\\1957f8e6-a022-4200-9b52-bbd8397fafca_IMG_20230505_090741.jpg"
+    },
+    {
+      "Id": "C:\\Program Files\\installed apps\\Linux comanned\\crzylearning\\DotNet Apps\\vroom\\wwwroot\\Images\\Bikes\\9baf393e-6652-4b7e-b237-bce7a19dfd0e_photo_2023-11-02_04-22-26-removebg-preview.png",
+      "PackagePath": "staticwebassets\\Images\\Bikes\\9baf393e-6652-4b7e-b237-bce7a19dfd0e_photo_2023-11-02_04-22-26-removebg-preview.png"
+    },
+    {
+      "Id": "C:\\Program Files\\installed apps\\Linux comanned\\crzylearning\\DotNet Apps\\vroom\\wwwroot\\Images\\Bikes\\b2035ba5-d02f-4966-b249-fb7a468faa8c_IMG_20230208_133451.jpg",
+      "PackagePath": "staticwebassets\\Images\\Bikes\\b2035ba5-d02f-4966-b249-fb7a468faa8c_IMG_20230208_133451.jpg"
+    },
+    {
+      "Id": "C:\\Program Files\\installed apps\\Linux comanned\\crzylearning\\DotNet Apps\\vroom\\wwwroot\\Images\\Bikes\\dfc4e1a3-dcd2-45f7-935b-c45b12a661a9_photo_2023-11-15_11-09-39.jpg",
+      "PackagePath": "staticwebassets\\Images\\Bikes\\dfc4e1a3-dcd2-45f7-935b-c45b12a661a9_photo_2023-11-15_11-09-39.jpg"
+    },
+    {
+      "Id": "C:\\Program Files\\installed apps\\Linux comanned\\crzylearning\\DotNet Apps\\vroom\\wwwroot\\Images\\Bikes\\e68027da-65fe-40b6-8538-1fb8ced01357_IMG_20230208_133451.jpg",
+      "PackagePath": "staticwebassets\\Images\\Bikes\\e68027da-65fe-40b6-8538-1fb8ced01357_IMG_20230208_133451.jpg"
+    },
+    {
+      "Id": "C:\\Program Files\\installed apps\\Linux comanned\\crzylearning\\DotNet Apps\\vroom\\wwwroot\\Images\\ImageNotUploaded.jpeg",
+      "PackagePath": "staticwebassets\\Images\\ImageNotUploaded.jpeg"
     },
     {
       "Id": "C:\\Program Files\\installed apps\\Linux comanned\\crzylearning\\DotNet Apps\\vroom\\wwwroot\\css\\site.css",

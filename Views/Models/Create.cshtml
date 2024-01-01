@@ -19,7 +19,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="MakeId" class="control-label"></label>
-                <select asp-for="MakeId" class ="form-control" asp-items="ViewBag.MakeId"></select>
+                <select asp-for="MakeId" class ="form-control" asp-items="ViewBag.MakeId">
+                    <option value="">--Select Make--</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

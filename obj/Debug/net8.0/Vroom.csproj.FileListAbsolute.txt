@@ -281,3 +281,4 @@ C:\Program Files\installed apps\Linux comanned\crzylearning\DotNet Apps\vroom\bi
 C:\Program Files\installed apps\Linux comanned\crzylearning\DotNet Apps\vroom\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Program Files\installed apps\Linux comanned\crzylearning\DotNet Apps\vroom\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Program Files\installed apps\Linux comanned\crzylearning\DotNet Apps\vroom\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Program Files\installed apps\Linux comanned\crzylearning\DotNet Apps\vroom\obj\Debug\net8.0\Vroom.sourcelink.json

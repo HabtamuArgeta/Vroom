@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vroom")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af57112da735152e392b3e0ee3be5ffafcaa5767")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vroom")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vroom")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

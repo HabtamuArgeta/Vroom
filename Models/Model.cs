@@ -10,7 +10,8 @@ namespace Vroom.Models
         public string Name { get; set; }
 
         public Make Make { get; set; }
-        [Required(ErrorMessage ="Select Make of the model")]
+
+        [RegularExpression("^[1-9]*$", ErrorMessage = "Select Make")]
         public int  MakeId { get; set; }
         public ICollection<Bike> Bike { get; set; }
 
